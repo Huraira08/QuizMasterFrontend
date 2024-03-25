@@ -21,6 +21,19 @@ import { UpsertPopupComponent } from './components/upsert-popup/upsert-popup.com
 import { ResultsPageComponent } from './pages/results-page/results-page.component';
 import { LeaderboardComponent } from './pages/leaderboard/leaderboard.component';
 
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { IconsProviderModule } from './icons-provider.module';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+
+registerLocaleData(en);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,9 +63,18 @@ import { LeaderboardComponent } from './pages/leaderboard/leaderboard.component'
         allowedDomains: ['http://localhost:4200/', 'https://localhost:7129/'], // Specify your domain(s)
         // disallowedRoutes: [] // Routes that don't require token (optional)
       }
-    })
+    }),
+    BrowserAnimationsModule,
+    NzMenuModule,
+    NzIconModule,
+    NzCollapseModule,
+    IconsProviderModule,
+    NzLayoutModule
+    
   ],
-  providers: [],
+  providers: [
+    { provide: NZ_I18N, useValue: en_US }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,6 +4,7 @@
       <app-title [fontSize]="30"></app-title>
     </div>
     <div class="text-buttons col-md-6">
+      <!-- <nz-menu></nz-menu> -->
       <ng-container *ngIf="isAdmin; else leaderboard">
         <a routerLink="/admin" *ngIf="isAdmin">Admin Panel</a>
       </ng-container>
